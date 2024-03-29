@@ -48,7 +48,7 @@ router.post("/", async (req: Request, res: Response) => {
   });
 
   if (recoveredAddress !== address) {
-    console.error("recoveredAddress error", recoveredAddress, address);
+    console.error("recoveredAddress error", recoveredAddress, String(address).replace(/\n|\r/g, ""));
     return res.status(401).json({ message: "Invalid signature" });
   }
 
